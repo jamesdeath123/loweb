@@ -12,7 +12,7 @@ import { applyMiddleware, createStore as initialCreateStore, compose } from 'red
 
 import { env } from './config/config'
 import HomePageContainer from './pages/homepage/HomePageContainer'
-import ArticleContainer from './pages/articles/ArticleContainer'
+import PostContainer from './pages/posts/PostContainer'
 
 let createStore = initialCreateStore
 
@@ -45,7 +45,7 @@ let routes = (<div className="app">
 				<Router history={appHistory}>
 					<Route name="main">
 						<Route name="home" path="/" component={HomePageContainer}/>
-						<Route name="home" path="articles/post" component={ArticleContainer}/>
+						<Route name="home" path="/posts" component={PostContainer}/>
 					</Route>
 				</Router>
 			</Provider>

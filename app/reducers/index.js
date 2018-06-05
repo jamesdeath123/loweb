@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import postArticleState from './postArticleState'
+import createPostState from './createPostState'
 
 export default combineReducers({
-	postArticleState,
+	createPostState,
 })

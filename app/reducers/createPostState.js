@@ -1,17 +1,20 @@
-import { POST_SUCCESS, POST_ERROR } from '../actions/articleActions'
+import { POST_SUCCESS, POST_ERROR } from '../actions/postActions'
 
 export default (state = {
-	message: '',
+	post: '',
+	postId: ''
 }, action) => {
 	switch (action.type) {
 		case POST_SUCCESS: {
 			return Object.assign({}, state, {
-				message:action.data,
+				post: action.post,
+				postId: action.postId
 			})
 		}
 		case POST_ERROR: {
 			return Object.assign({}, state, {
-				message: '',
+				post: '',
+				postId: ''
 			})
 		}
 		default:

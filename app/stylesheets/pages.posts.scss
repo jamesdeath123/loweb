@@ -1,17 +1,17 @@
 @import "variables";
 
-#articleForm {
+#postForm {
 	background-color: $GREY;
 }
 
-.article-form {
+.post-form {
 	width: 100%;
 	max-width: 330px;
 	padding: 15px;
 	margin: auto;
 }
 
-.article-form .form-control {
+.post-form .form-control {
 	position: relative;
 	box-sizing: border-box;
 	height: auto;
@@ -19,7 +19,7 @@
 	font-size: 16px;
 }
 
-.article-form .form-control:focus {
+.post-form .form-control:focus {
 	z-index: 2;
 }
 
@@ -32,7 +32,7 @@ div .done {
 }
 
 @media (max-width: 460px) {
-	.article-form {
+	.post-form {
 		max-width: 200px;
 	}
 }

@@ -1,3 +1,3 @@
 export const loumsAPI = {
-	postArticle: 'articles/post',
+	postArticle: 'posts/new',
 }

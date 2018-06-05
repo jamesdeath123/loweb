@@ -2,18 +2,19 @@ import axios from 'axios'
 import { loumsApp } from '../config/config'
 import { loumsAPI } from '../config/api'
 
-export const POST_SUCCESS = 'SIGNUP_SUCCESS'
-export const POST_ERROR = 'SIGNUP_ERROR'
+export const POST_SUCCESS = 'POST_SUCCESS'
+export const POST_ERROR = 'POST_ERROR'
 
-export function post(data) {
+export function create(message, level) {
 	return dispatch => {
 		axios.post(loumsApp.baseUrl + loumsAPI.postArticle,
 		{
-			data,
+			content: message,
+			level
 		})
 		.then(function(res){
 			if (res.status === 200 && res.data && res.data.result) {
-				dispatch(postSuccess(res.data.data))
+				dispatch(postSuccess(message, res.data.data))
 			}
 		}).catch(function(err) {
 			dispatch(postError(err))
@@ -21,10 +22,11 @@ export function post(data) {
 	}
 }
 
-function postSuccess(data) {
+function postSuccess(post, postId) {
 	return {
 		type: POST_SUCCESS,
-		data: data
+		post,
+		postId
 	}
 }
 

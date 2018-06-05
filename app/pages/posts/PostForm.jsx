@@ -1,7 +1,7 @@
-require('../../stylesheets/pages.articles.scss')
+require('../../stylesheets/pages.posts.scss')
 import React, {Component} from 'react'
 
-export default class SignupForm extends Component {
+export default class PostForm extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -10,9 +10,9 @@ export default class SignupForm extends Component {
 	}
 
 	render() {
-		const { postArticleState } = this.props
+		const { createPostState } = this.props
 		return (<div>
-			<form className="article-form text-center" id="articleForm" name="articleForm">
+			<form className="post-form text-center" id="postForm" name="postForm">
 				<div>
 					<input className="form-control"
 						aria-label="firstname"
@@ -22,7 +22,7 @@ export default class SignupForm extends Component {
 						onChange={this.handleChangeMessage.bind(this)}
 						/>
 				</div>
-				<div className="message">{postArticleState.message}</div>
+				<div className="message">{createPostState.post}</div>
 				<div className="done">
 					<button className="btn btn-primary btn-block" type="submit" 
 						onClick={this.handleClickPost.bind(this)} 
@@ -43,6 +43,6 @@ export default class SignupForm extends Component {
 
 	handleClickPost(event) {
 		event.preventDefault()
-		this.props.postArticleHandler(this.state.message)
+		this.props.createPostHandler(this.state.message, 1)
 	}
 }
