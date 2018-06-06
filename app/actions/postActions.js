@@ -1,21 +1,25 @@
 import axios from 'axios'
 import { loumsApp } from '../config/config'
 import { loumsAPI } from '../config/api'
+import { getPosts } from './userActions'
 
 export const POST_SUCCESS = 'POST_SUCCESS'
 export const POST_ERROR = 'POST_ERROR'
 
-export function create(message, author, level) {
+export const POST_REPLY_SUCCESS = 'POST_REPLY_SUCCESS'
+export const POST_REPLY_ERROR = 'POST_REPLY_ERROR'
+
+export function create(content, author, level) {
 	return dispatch => {
 		axios.post(loumsApp.baseUrl + loumsAPI.postArticle,
 		{
-			content: message,
+			content,
 			author,
 			level
-		})
-		.then(function(res){
+		}).then(function(res){
 			if (res.status === 200 && res.data && res.data.result) {
-				dispatch(postSuccess(message, res.data.data))
+				dispatch(getPosts(author))
+				dispatch(postSuccess(content, res.data.data))
 			}
 		}).catch(function(err) {
 			dispatch(postError(err))
@@ -34,5 +38,22 @@ function postSuccess(post, postId) {
 function postError(error) {
 	return {
 		type: POST_ERROR,
+	}
+}
+
+export function reply(content, originalPost, author, level) {
+	return dispatch => {
+		axios.post(loumsApp.baseUrl + loumsAPI.posts + originalPost.id + "/" + loumsAPI.replyPost,
+		{
+			content,
+			author,
+			level
+		}).then(function(res){
+			if (res.status === 200 && res.data && res.data.result) {
+				dispatch(postSuccess(content, res.data.data))
+			}
+		}).catch(function(err) {
+			dispatch(postError(err))
+		})
 	}
 }

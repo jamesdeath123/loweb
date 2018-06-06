@@ -4,7 +4,6 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PostForm from './PostForm'
 import { create } from '../../actions/postActions'
-import { getPosts } from '../../actions/userActions'
 import PostList from './PostList'
 
 class PostContainer extends Component {
@@ -24,7 +23,6 @@ class PostContainer extends Component {
 
 	createPostHandler(message, author, level) {
 		this.props.dispatch(create(message, author, level))
-		this.props.dispatch(getPosts(author))
 	}
 }
 

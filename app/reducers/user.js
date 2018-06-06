@@ -6,6 +6,7 @@ export default (state = {
 }, action) => {
 	switch (action.type) {
 		case GET_POSTS_BY_AUTHOR_SUCCESS: {
+			window.console.log(action.posts)
 			return Object.assign({}, state, {
 				posts: action.posts,
 				error: ''

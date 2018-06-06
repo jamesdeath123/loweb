@@ -59,6 +59,23 @@ div .post-author {
 	text-align: right;
 }
 
+div .reply-button {
+	button {
+		background-color: Transparent;
+		background-repeat:no-repeat;
+		border: none;
+		overflow: hidden;
+		outline: none;
+		padding-right: 0px;
+		margin-right: 0px;
+	}
+	button:hover {
+		color: #2b9ddb;
+	}
+	text-align: right;
+	color: #3e77e9;
+}
+
 @media (max-width: 460px) {
 	.post-form {
 		max-width: 200px;

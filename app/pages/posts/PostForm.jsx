@@ -19,13 +19,12 @@ export default class PostForm extends Component {
 			messageErrorhintClass = " message-error-hint"
 			errorMessage = "Max length is 140 characters."
 		}
-		return (<div>
-			<form id="postForm" className="post-form text-center" name="postForm">
+		return (<div id="postForm" className="post-form text-center" name="postForm">
 				<div className="error-text">{errorMessage}</div>
 				<div>
 					<textarea className={"form-control " + (messageErrorhintClass)}
 						aria-label="message"
-						placeholder="Input the post" 
+						placeholder="Your comment" 
 						type="text"
 						value={this.state.message}
 						onChange={this.handleChangeMessage.bind(this)}
@@ -52,7 +51,6 @@ export default class PostForm extends Component {
 					</button>
 				</div>
 				{this.props.children}
-			</form>
 		</div>)
 	}
 
