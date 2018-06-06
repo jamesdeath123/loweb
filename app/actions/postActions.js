@@ -5,11 +5,12 @@ import { loumsAPI } from '../config/api'
 export const POST_SUCCESS = 'POST_SUCCESS'
 export const POST_ERROR = 'POST_ERROR'
 
-export function create(message, level) {
+export function create(message, author, level) {
 	return dispatch => {
 		axios.post(loumsApp.baseUrl + loumsAPI.postArticle,
 		{
 			content: message,
+			author,
 			level
 		})
 		.then(function(res){

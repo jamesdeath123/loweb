@@ -6,7 +6,7 @@
 
 .post-form {
 	width: 100%;
-	max-width: 330px;
+	max-width: 600px;
 	padding: 15px;
 	margin: auto;
 }
@@ -23,12 +23,40 @@
 	z-index: 2;
 }
 
-div .message {
+div .text-length-count {
+	text-align: right;
+}
+
+div .message-error-hint {
+	box-shadow: 1px 1px 1px 1px #ee6055!important;
+}
+
+div .error-text {
 	height: 1.5em;
 }
 
 div .done {
 	padding-top: 10px;
+	text-align: right;
+}
+
+div .post-list-title {
+	font-size: 1.3em;
+}
+
+div .post-item {
+	text-align: left;
+	.post-content {
+		font-size: 1.2em;
+	}
+}
+
+.separator {
+	border-top: 1px solid #8c8c8c;
+}
+
+div .post-author {
+	text-align: right;
 }
 
 @media (max-width: 460px) {

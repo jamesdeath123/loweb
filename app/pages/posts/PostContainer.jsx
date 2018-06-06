@@ -1,7 +1,11 @@
+require('../../stylesheets/pages.posts.scss')
+
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import PostForm from './PostForm'
-import { create } from "../../actions/postActions"
+import { create } from '../../actions/postActions'
+import { getPosts } from '../../actions/userActions'
+import PostList from './PostList'
 
 class PostContainer extends Component {
 	render() {
@@ -9,20 +13,24 @@ class PostContainer extends Component {
 			<div>
 				<PostForm
 					createPostHandler = {this.createPostHandler.bind(this)}
-					createPostState = {this.props.createPostState}
-				/>
+					>
+					<PostList
+						posts = {this.props.posts}
+					/>
+				</PostForm>
 			</div>
 		)
 	}
 
-	createPostHandler(message, level) {
-		this.props.dispatch(create(message, level))
+	createPostHandler(message, author, level) {
+		this.props.dispatch(create(message, author, level))
+		this.props.dispatch(getPosts(author))
 	}
 }
 
 function select(state) {
 	return {
-		createPostState: state.createPostState,
+		posts: state.user.posts,
 	}
 }
 
