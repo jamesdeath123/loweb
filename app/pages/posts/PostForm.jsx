@@ -7,7 +7,8 @@ export default class PostForm extends Component {
 		this.state = {
 			message: '',
 			name: '',
-			validMessageLength: true
+			validMessageLength: true,
+			parentPost: props.parentPost
 		}
 	}
 
@@ -73,6 +74,6 @@ export default class PostForm extends Component {
 
 	handleClickPost(event) {
 		event.preventDefault()
-		this.props.createPostHandler(this.state.message, this.state.name, 1)
+		this.props.createPostHandler(this.state.message, this.state.name, this.state.parentPost)
 	}
 }

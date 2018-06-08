@@ -46,6 +46,10 @@ div .post-list-title {
 
 div .post-item {
 	text-align: left;
+	border: 1px solid #8c8c8c;
+	border-radius: 3px;
+	padding: 10px;
+	background: white;
 	.post-content {
 		font-size: 1.2em;
 	}

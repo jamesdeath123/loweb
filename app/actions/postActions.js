@@ -41,15 +41,15 @@ function postError(error) {
 	}
 }
 
-export function reply(content, originalPost, author, level) {
+export function reply(originalPost, content, author) {
 	return dispatch => {
 		axios.post(loumsApp.baseUrl + loumsAPI.posts + originalPost.id + "/" + loumsAPI.replyPost,
 		{
 			content,
-			author,
-			level
+			author
 		}).then(function(res){
 			if (res.status === 200 && res.data && res.data.result) {
+				dispatch(getPosts(author))
 				dispatch(postSuccess(content, res.data.data))
 			}
 		}).catch(function(err) {
